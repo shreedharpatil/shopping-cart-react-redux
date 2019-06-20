@@ -23,7 +23,7 @@ class Cart extends React.Component
         const width8 = {width : '1%'};
         const width22 = {width : '22%'};
         const productStyle = { height : '50px', width : '50px'};   
-
+        const price = { textAlign : 'right', marginTop : '15px'};
         const Body = this.props.cart.items.map((p, i) => (
         <tr>
             <td data-th="Product">
@@ -46,7 +46,11 @@ class Cart extends React.Component
 
         const Cart = (
                 <div>
-                        <h3>Cart({this.props.cart.items.length})</h3>
+                    <div className="row">
+                        <div className="col-sm-6"><h3>Cart({this.props.cart.items.length})</h3></div>
+                        <div className="col-sm-6" style={price}><strong class="badge badge-warning">Total : &#8377;{this.totalPriceFunc()}</strong></div>
+                    </div>
+                        
                     <table id="cart" class="table table-hover table-condensed">
                         <thead>
                             <tr>
@@ -78,7 +82,7 @@ class Cart extends React.Component
             <strong>Cart is empty.</strong>
           </div>
         );
-        
+
         return(
             <div>
                 {this.props.cart.items.length > 0 ? Cart : EmptyCart}
