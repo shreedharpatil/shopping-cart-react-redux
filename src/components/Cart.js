@@ -44,8 +44,9 @@ class Cart extends React.Component
             </td>  
         </tr>));
 
-        return(
-            <div>
+        const Cart = (
+                <div>
+                        <h3>Cart({this.props.cart.items.length})</h3>
                     <table id="cart" class="table table-hover table-condensed">
                         <thead>
                             <tr>
@@ -69,6 +70,18 @@ class Cart extends React.Component
                             </tr>
                         </tfoot>
                     </table>
+                </div>
+        );
+
+        const EmptyCart = (
+            <div class="alert alert-success">
+            <strong>Cart is empty.</strong>
+          </div>
+        );
+        
+        return(
+            <div>
+                {this.props.cart.items.length > 0 ? Cart : EmptyCart}
             </div>
         );
     }
