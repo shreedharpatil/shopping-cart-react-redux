@@ -25,7 +25,7 @@ export const removeCartProduct = (cart, item) => (dispatch) => {
     let index = cart.items.findIndex(p => p.id === item.id);
 
     if (index !== -1) {
-      var cartProducts = cart.items.slice();
+      let cartProducts = cart.items.slice();
       cartProducts.splice(index, 1);
 
       return dispatch({
@@ -37,11 +37,11 @@ export const removeCartProduct = (cart, item) => (dispatch) => {
 
 export const modifyProductQuantityInCart = (cart, item, quantity) => (dispatch) => {
     if(quantity < 1) return;
-    var index = cart.items.findIndex(p => p.id === item.id);
+    let index = cart.items.findIndex(p => p.id === item.id);
    
     if(index >= 0){
-      var cartProducts = cart.items.slice();
-      var updatedProduct = cartProducts[index];
+      let cartProducts = cart.items.slice();
+      let updatedProduct = cartProducts[index];
       updatedProduct.units = parseInt(quantity);
       cartProducts[index] = updatedProduct;
 

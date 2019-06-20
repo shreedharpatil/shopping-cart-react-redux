@@ -32,14 +32,15 @@ class Products extends React.Component {
 
         return (
             <div class="row">
-                {prods}
-            </div>        
+                    {prods}
+            </div>
+                   
         );
     }    
 };
 
 const mapStateToProps = (state) => ({
-    products : state.products.products,
+    products : state.products.filteredProducts,
     cart : state.cart.cart
 });
 
