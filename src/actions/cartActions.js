@@ -1,4 +1,4 @@
-import { ADD_PRODUCT_TO_CART, REMOVE_PRODUCT_FROM_CART, MODIFY_PRODUCT_QUANTITY_IN_CART } from "./actionTypes";
+import { ADD_PRODUCT_TO_CART, REMOVE_PRODUCT_FROM_CART, MODIFY_PRODUCT_QUANTITY_IN_CART, SHOW_CART, HIDE_CART, HIDE_TOASTER } from "./actionTypes";
 
 export const addProductToCart = (cart, product) => (dispatch) => {
     let index = cart.items.findIndex(p => p.id === product.id);
@@ -17,7 +17,10 @@ export const addProductToCart = (cart, product) => (dispatch) => {
 
     return dispatch({
         type : ADD_PRODUCT_TO_CART,
-        payload : cartProducts
+        payload : { 
+            items : cartProducts,
+            toaster : { show : true, heading : 'Product Added', content : 'Product ' + product.name + ' added to cart' }
+        }
     });
 };
 
@@ -30,7 +33,11 @@ export const removeCartProduct = (cart, item) => (dispatch) => {
 
       return dispatch({
           type : REMOVE_PRODUCT_FROM_CART,
-          payload : cartProducts
+          payload : {
+            items : cartProducts,
+            show : cart.show
+        }
+        //   payload : cartProducts
       });
     }
 };
@@ -47,7 +54,38 @@ export const modifyProductQuantityInCart = (cart, item, quantity) => (dispatch) 
 
       return dispatch({
         type : MODIFY_PRODUCT_QUANTITY_IN_CART,
-        payload : cartProducts
+        payload : {
+            items : cartProducts,
+            show : cart.show
+        }
+        // payload : cartProducts
     });
     }
+};
+
+export const showCart = (cart) => (dispatch) => {
+    return dispatch({
+        type : SHOW_CART,
+        payload : {
+            items : cart.items,
+            show : true
+        }
+    });
+};
+
+export const hideCart = (cart) => (dispatch) => {
+    return dispatch({
+        type : HIDE_CART,
+        payload : {
+            items : cart.items,
+            show : false
+        }
+    });
+};
+
+export const hideToaster = (cart) => (dispatch) => {
+    return dispatch({
+        type : HIDE_TOASTER,
+        payload : false
+    });
 };

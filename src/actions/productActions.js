@@ -28,6 +28,9 @@ export const fetchProducts = () => (dispatch) => {
         },
         {
           id: 9, name: 'Potato', description: 'Potato Vegetable.', img: 'images/potato.jpeg', price: 40, type : 'Vegetable'
+        },
+        {
+          id: 10, name: 'Carrot', description: 'Carrot Vegetable.', img: 'images/carrot.jpg', price: 30, type : 'Vegetable'
         }
       ];
 

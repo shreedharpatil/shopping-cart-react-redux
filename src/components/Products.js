@@ -12,6 +12,11 @@ class Products extends React.Component {
     render(){
         const productStyle = { height : '100px', width : '100px'};
         const card = { width : '200px', marginBottom : '5px'};
+        const price = {
+            marginTop: '7px',
+            float: 'right',
+            color: 'black'
+        };
         const prods = (
             <div class="card-deck">
             { this.props.products.map(p => (
@@ -22,7 +27,7 @@ class Products extends React.Component {
                         <h5 className="card-title">{p.name}</h5>
                         <p className="card-text">{p.description}</p>
                         <button href="#" className="btn btn-danger" onClick={() => this.props.addProductToCart(this.props.cart, {...p, units : 1})}>Add To Cart</button>
-                        <span>&#8377;{p.price} </span>
+                        <span style={price}><strong>&#8377;{p.price}</strong> </span>
                     </div>
                 </div>
                 </div>

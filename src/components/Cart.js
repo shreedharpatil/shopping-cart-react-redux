@@ -46,8 +46,8 @@ class Cart extends React.Component
 
         const Cart = (
                 <div>
-                    <div className="row">
-                        <div className="col-sm-6"><h3>Cart({this.props.cart.items.length})</h3></div>
+                    <div className="row">                    
+                        <div className="col-sm-6"><h5>{this.props.cart.items.length} Items in cart</h5></div>
                         <div className="col-sm-6" style={price}><strong class="badge badge-warning">Total : &#8377;{this.totalPriceFunc()}</strong></div>
                     </div>
                         
@@ -64,15 +64,14 @@ class Cart extends React.Component
                         <tbody>
                             {Body}
                         </tbody>
-                        <tfoot>
+                        {/* <tfoot>
                             <tr>
-                                {/* <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td> */}
                                 <td colspan="2" class="hidden-xs"></td>
                                 <td class="hidden-xs text-center"><strong>Total &#8377;{this.totalPriceFunc()}</strong></td>
                                 <td><button href="#" class="btn btn-success btn-block">Checkout</button></td>
                                 
                             </tr>
-                        </tfoot>
+                        </tfoot> */}
                     </table>
                 </div>
         );
